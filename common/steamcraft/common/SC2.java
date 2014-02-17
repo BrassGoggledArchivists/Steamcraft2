@@ -68,4 +68,19 @@ public class SC2 {
 	// 6. Post this kind of info here, so the developers can read it easily.
 	// 7. Please use the nightly branch for all experimental, incomplete, and WIP stuff; only use the master and maindir branches for
 	// finalized components!
+	
+	/**
+	 * 01. Basic Steam Boiler: uses charcoal/coal to turn water into steam; can only transfer steam through steam pipes; has a small internal storage buffer
+	 * 02. Compressor: uses steam (from steam pipes) to place steam into canisters which only power portable items (i.e. drills, brass wings, etc.)
+	 * 03. Steam-Powered Engine: uses steam (from steam pipes) to turn steam-power into EU or MJ or Thermal Expansion power; has an internal storage buffer
+     * 04. Advanced Steam Boiler: uses charcoal/coal, and wood products to turn water into steam; can also place steam into canisters; has a large internal storage buffer
+	 * 05. Steam-Pipes: transfers steam to and from machines
+	 * 06. Lightning rod: when struck, it generates a massive amount of EU or MJ; has a large internal storage buffer of energy
+	 * 07. Tesla Coils: can send EU, MJ, or redstone power wirelessly to a Tesla Receiver within a certain distance; does NOT have an internal storage buffer
+	 * 08. Chemical Furnace: uses interesting chemical compounds (i.e. gunpowder, sulphur, or glowstone) to provide a faster way to smelt things; Tier 2 Furnace
+	 * 09. Steam-Powered Furnace: uses steam to provide a faster way to smelt things; Tier 3 Furnace
+	 * 10. Nuclear Furnace: uses MJ or EU to provide the fastest way to smelt things; must have “exhaust” routed through smoke stacks, otherwise the nuclear furnace will explode; smoke stacks pollute nearby area (change grass color, excessive rain, etc.); Tier 4 Furnace
+	 * 11. Clockwork machines: run off of a mechanical energy, much like steam-power; highest order of tools and armor; recharges via winding machine
+	 * 12. Winding Machine: uses EU, MJ, or Steam-Power to rewind clockwork tools; does NOT have an internal buffer
+	 */
 }
