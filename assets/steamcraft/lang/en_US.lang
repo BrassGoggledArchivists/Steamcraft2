@@ -1,1 +1,50 @@
-#Block
+#Blocks
+tile.castironblock.name=Cast Iron Block
+tile.voluciteblock.name=Volucite Block
+tile.brassblock.name=Brass Block
+tile.lampOff.name=Lamp
+tile.lampOn.name=Lamp (Lit)
+tile.brasslog.name=Brasswood
+tile.brassleaves.name=Brassleaves
+tile.railingCastIron.name=Cast Iron Railing
+tile.gateCastIron.name=Cast Iron Gate
+tile.engriron.name=Carved Iron
+tile.engrgold.name=Carved Gold
+tile.engrdiamond.name=Carved Diamond
+tile.engrcastiron.name=Carved Cast Iron
+tile.engrvolucite.name=Carved Volucite
+tile.engrbrass.name=Carved Brass
+tile.engrlapis.name=Carved Lapis
+tile.engrstone.name=Carved Stone
+tile.uraniumblock.name=Uranium Block
+tile.engruranium.name=Carved Uranium
+tile.aluminumblock.name=Aluminum Block
+tile.copperblock.name=Copper Block
+tile.tinblock.name=Tin Block
+tile.zincblock.name=Zinc Block
+tile.bronzeblock.name=Bronze Block
+tile.steelblock.name=Steel Block
+tile.teaPlant.name=Tea Plant
+tile.blockSlateTile.name=Obsidian Slate Tiles
+tile.castIronLampIdle.name=Cast Iron Lamp
+tile.castIronLampActive.name=Cast Iron Lamp
+tile.smog.name=Smog
+	#Ores
+tile.bornite.name=Bornite Ore
+tile.brimstone.name=Brimstone Ore
+tile.phosphate.name=Phosphate Ore
+tile.uranite.name=Uranite Ore
+tile.volucite.name=Volucite Ore
+tile.aluminum.name=Aluminum Ore
+tile.copper.name=Copper Ore
+tile.tin.name=Tin Ore
+tile.zinc.name=Zinc Ore
+	#Machines
+tile.copperWire.name=Copper Wire
+tile.lightningRod.name=Lightning Rod
+tile.steamfurnace.name=Steam Furnace
+tile.chemfurnace.name=Chemical Furnace
+tile.nukefurnace.name=Nuke Furnace
+tile.compressor.name=Compressor
+tile.conveyor.name=Conveyor Belt
+tile.generator.name=Simple Coal Generator

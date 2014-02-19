@@ -53,7 +53,6 @@ public class ModMachines {
 		generator = new BlockGenerator(BlockIDs.generatorID).setCreativeTab(CreativeTabsMod.tabSCBlocks).setUnlocalizedName("simpleCoalGenerator");
 
 		registerMachines();
-		initMachineNames();
 		initMachineTileEntities();
 	}
 
@@ -67,15 +66,6 @@ public class ModMachines {
 		GameRegistry.registerBlock(compressor, "compressorMachine");
 		GameRegistry.registerBlock(conveyor, "conveyor");
 		GameRegistry.registerBlock(generator, "simpleCoalGenerator");
-	}
-
-	public static void initMachineNames() {
-		LanguageRegistry.addName(steamOvenIdle, "Steam Furnace");
-		LanguageRegistry.addName(chemOvenIdle, "Chemical Furnace");
-		LanguageRegistry.addName(nukeOvenIdle, "Nuke Furnace");
-		LanguageRegistry.addName(compressor, "Compressor");
-		LanguageRegistry.addName(conveyor, "Conveyor Belt");
-		LanguageRegistry.addName(generator, "Simple Coal Generator");
 	}
 	
 	public static void initMachineTileEntities() {
