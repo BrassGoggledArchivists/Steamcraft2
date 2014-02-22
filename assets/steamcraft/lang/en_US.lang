@@ -133,3 +133,6 @@ item.obsidianlegs.name=Obsidian Leggings
 item.obsidianboots.name=Obsidian Boots
 item.brassmonocle.name=Brass Monocle
 item.brasswings.name=Brass Wings
+#Tabs
+itemGroup.tabSCBlocks.name=Steamcraft 2 Blocks
+itemGroup.tabSCItems.name=Steamcraft 2 Items
