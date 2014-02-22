@@ -21,6 +21,7 @@ public class BlockLightningRod extends BlockContainer //implements ISimpleBlockR
 	{
 		super(id, Material.circuits);
 		this.setCreativeTab(CreativeTabsMod.tabSCBlocks);
+		setUnlocalizedName("lightningrod");
 		float f = 0.24F;
 		// minX, minY, minZ, maxX, maxY, maxZ
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 2.0F, 0.5F + f);

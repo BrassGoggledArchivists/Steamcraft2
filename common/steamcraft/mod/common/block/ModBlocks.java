@@ -88,14 +88,14 @@ public class ModBlocks
 		decorUranium = new BlockUranium(BlockIDs.decorUraniumID).setHardness(10F).setResistance(6F).setLightValue(0.625F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("engruranium");
 		
 		gateCastIron = new BlockCastIronGate(BlockIDs.gateCastIronID, Material.iron);
-		railingCastIron = new BlockFence(BlockIDs.railingCastIronID, LibInfo.SC2_PREFIX + "castironblock", Material.iron).setHardness(7F).setResistance(20F).setStepSound(Block.soundMetalFootstep).setCreativeTab(CreativeTabsMod.tabSCBlocks);//.setUnlocalizedName("castironblock");
+		railingCastIron = new BlockFence(BlockIDs.railingCastIronID, LibInfo.SC2_PREFIX + "castironblock", Material.iron).setHardness(7F).setResistance(20F).setStepSound(Block.soundMetalFootstep).setCreativeTab(CreativeTabsMod.tabSCBlocks).setUnlocalizedName("castirongate");
 		lampOn = new BlockLamp(BlockIDs.lampOnID, true).setUnlocalizedName("lampblockon").setCreativeTab(null);
 		lampOff = new BlockLamp(BlockIDs.lampOffID, false).setUnlocalizedName("lampblockoff");
 		brassWood = new BlockBrassLog(BlockIDs.woodBrassID);
 		brassLeaves = new BlockMod(BlockIDs.leavesLampID, Material.wood).setHardness(2F).setLightOpacity(1).setLightValue(0.9375F).setStepSound(Block.soundGlassFootstep).setUnlocalizedName("brassleaves");
 		teaPlant = new BlockTeaPlant(BlockIDs.teaPlantID);
 		castIronLampIdle = new BlockCastIronLamp(BlockIDs.castIronLampIdleID, false).setCreativeTab(CreativeTabsMod.tabSCBlocks);
-		castIronLampActive = new BlockCastIronLamp(BlockIDs.castIronLampActiveID, true);
+		castIronLampActive = new BlockCastIronLamp(BlockIDs.castIronLampActiveID, true).setUnlocalizedName("castironlamp");
 		smog = new BlockSmog(BlockIDs.smogID, Material.air).setUnlocalizedName("smog");
 
 		ModMachines.initMachines();
