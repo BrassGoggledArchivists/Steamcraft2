@@ -29,7 +29,7 @@ import org.lwjgl.opengl.GL11;
  */
 public class GuiSteamFurnace extends GuiContainer
 {
-	private static final ResourceLocation steamGuiTextures = new ResourceLocation(LibInfo.MOD_ID.toLowerCase(), "textures/gui/steamfurnace.png");
+	private static final ResourceLocation steamGuiTextures = new ResourceLocation(LibInfo.SC2_PREFIX.toLowerCase(), "textures/gui/steamfurnace.png");
 	private TileEntitySteamFurnace furnaceInventory;
 
 	public GuiSteamFurnace(InventoryPlayer inventoryplayer, TileEntitySteamFurnace furnace)

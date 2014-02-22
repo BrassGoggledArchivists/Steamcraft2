@@ -30,14 +30,14 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 
-@Mod(modid = LibInfo.MOD_ID, name = LibInfo.MOD_NAME, version = LibInfo.VERSION)
+@Mod(modid = LibInfo.SC2_PREFIX, name = LibInfo.MOD_NAME, version = LibInfo.VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false, channels = {LibInfo.NETWORK_CHANNEL}, packetHandler = PacketHandler.class)
 /**
  * @author MrArcane111
  *
  */
 public class SC2 {
-	@Instance(LibInfo.MOD_ID)
+	@Instance(LibInfo.SC2_PREFIX)
 	public static SC2 instance;
 	
 	@SidedProxy(clientSide = LibInfo.CLIENT_PROXY, serverSide = LibInfo.COMMON_PROXY)

@@ -29,7 +29,7 @@ import org.lwjgl.opengl.GL11;
  */
 public class GuiNukeFurnace extends GuiContainer
 {
-	private static final ResourceLocation nukeGuiTextures = new ResourceLocation(LibInfo.MOD_ID.toLowerCase(), "textures/gui/nukefurnace.png");
+	private static final ResourceLocation nukeGuiTextures = new ResourceLocation(LibInfo.SC2_PREFIX.toLowerCase(), "textures/gui/nukefurnace.png");
 	private TileEntityNukeFurnace furnaceInventory;
 	
 	public GuiNukeFurnace(InventoryPlayer inventory, TileEntityNukeFurnace furnace)

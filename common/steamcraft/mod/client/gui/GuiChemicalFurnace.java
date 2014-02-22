@@ -29,7 +29,7 @@ import org.lwjgl.opengl.GL11;
  */
 public class GuiChemicalFurnace extends GuiContainer 
 {
-	private static final ResourceLocation chemGuiTextures = new ResourceLocation(LibInfo.MOD_ID.toLowerCase(), "textures/gui/chemicalfurnace.png");
+	private static final ResourceLocation chemGuiTextures = new ResourceLocation(LibInfo.SC2_PREFIX.toLowerCase(), "textures/gui/chemicalfurnace.png");
 	private TileEntityChemicalFurnace furnaceInventory;
 	
 	public GuiChemicalFurnace(InventoryPlayer inventoryplayer, TileEntityChemicalFurnace furnace)

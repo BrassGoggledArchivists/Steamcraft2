@@ -24,7 +24,7 @@ public class ItemKettle extends Item
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon)
 	{
-		this.itemIcon = icon.registerIcon(LibInfo.MOD_ID + ":" + (this.getUnlocalizedName().substring(5)));
+		this.itemIcon = icon.registerIcon(LibInfo.SC2_PREFIX + ":" + (this.getUnlocalizedName().substring(5)));
 	}
 
 	@Override

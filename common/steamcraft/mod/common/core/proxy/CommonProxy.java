@@ -103,9 +103,9 @@ public class CommonProxy {
 
 	public void initTileEntities() {
 		// Lamp
-		GameRegistry.registerTileEntity(common.steamcraft.mod.common.block.tile.TileEntityLamp.class, LibInfo.MOD_ID + "TELamp");
+		GameRegistry.registerTileEntity(common.steamcraft.mod.common.block.tile.TileEntityLamp.class, LibInfo.SC2_PREFIX + "TELamp");
 		// Lightning Rod
-		GameRegistry.registerTileEntity(common.steamcraft.mod.common.block.tile.TileEntityLightningRod.class, LibInfo.MOD_ID + "TELightningRod");
+		GameRegistry.registerTileEntity(common.steamcraft.mod.common.block.tile.TileEntityLightningRod.class, LibInfo.SC2_PREFIX + "TELightningRod");
 	}
 
 	public void registerKeyBinds() {
