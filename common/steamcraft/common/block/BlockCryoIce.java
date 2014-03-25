@@ -10,6 +10,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -83,6 +84,14 @@ public class BlockCryoIce extends BlockMod {
 	((EntityLivingBase) entity).setJumping(true);
 	((EntityLivingBase) entity).rotationYaw = 0;
 	((EntityLivingBase) entity).rotationPitch = 0;
+	if(entity instanceof EntityZombie)
+	{
+		//The if statement has to be nested like this, sorry.
+		if(((EntityZombie)entity).isVillager())
+		{
+			((EntityZombie)entity).startConversion(10);
+		}
+	}
 	}
 	}
 }
