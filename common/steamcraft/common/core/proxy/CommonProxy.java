@@ -25,6 +25,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.packet.Packet;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -87,6 +88,7 @@ public class CommonProxy {
 		//this.registerKeyBinds();
 		this.initTileEntities();
 		ModCompatLayer.registerOreDictionary();
+		//DamageSource freeze = new DamageSource("SC2.freeze");
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {

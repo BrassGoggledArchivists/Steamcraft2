@@ -2,6 +2,9 @@ package common.steamcraft.common.block;
 
 import java.util.Random;
 
+import common.steamcraft.common.core.proxy.CommonProxy;
+
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -12,11 +15,13 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.stats.StatList;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -24,7 +29,7 @@ public class BlockCryoIce extends BlockMod {
 
 	public BlockCryoIce(int id, Material mat) {
 		super(id, mat);
-		slipperiness = 0.98F;
+		slipperiness = 0.7F;
 		blockHardness = 0.5F;
 		blockResistance = 0.01F;
 		stepSound = Block.soundSnowFootstep;
@@ -68,9 +73,9 @@ public class BlockCryoIce extends BlockMod {
      */
     public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity) 
     {
-    	this.applyDeepFreeze(par5Entity);
+    	this.applyDeepFreeze(par5Entity, par1World, par2, par3, par4);
     }
-	public void applyDeepFreeze(Entity entity)
+	public void applyDeepFreeze(Entity entity, World world, int x, int y, int z)
 	{
 	entity.extinguish();
 	entity.setInvisible(false);
@@ -91,6 +96,14 @@ public class BlockCryoIce extends BlockMod {
 		{
 			((EntityZombie)entity).startConversion(10);
 		}
+	}
+	if(entity instanceof EntityPlayer)
+	{
+		//Should be a custom 'freeze' damage source
+		((EntityPlayer)entity).attackEntityFrom(DamageSource.generic, 100F);
+		world.setBlockToAir(x,y,z);
+		world.setBlockToAir(x,y+1,z);
+		//Insert Creation of Cryonically Frozen Player statue here
 	}
 	}
 	}
