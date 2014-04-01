@@ -94,7 +94,7 @@ public class BlockCryoIce extends BlockMod {
 		//The if statement has to be nested like this, sorry.
 		if(((EntityZombie)entity).isVillager())
 		{
-			((EntityZombie)entity).startConversion(10);
+			//((EntityZombie)entity).startConversion(10);
 		}
 	}
 	if(entity instanceof EntityPlayer)

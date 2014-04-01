@@ -74,6 +74,8 @@ public class ModBlocks {
 	
 	public static Block hammerHead;
 	
+	public static Block copperPipe, copperTank;
+	
 	public static void initBlocks() {
 		blockCastIron = new BlockMod(BlockIDs.blockCastIronID, Material.iron).setHardness(7F).setResistance(20F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockCastIron");
 		blockVolucite = new BlockMod(BlockIDs.blockVoluciteID, Material.rock).setHardness(50F).setResistance(6000000F).setStepSound(Block.soundMetalFootstep).setUnlocalizedName("blockVolucite");
@@ -114,6 +116,8 @@ public class ModBlocks {
 		
 		smog = new BlockSmog(BlockIDs.smogID, Material.air).setUnlocalizedName("smog");
 		
+		copperPipe = new BlockCopperPipe(BlockIDs.copperPipeID, Material.anvil).setUnlocalizedName("copperPipe");
+		copperTank = new BlockCopperTank(BlockIDs.copperTankID, Material.anvil).setUnlocalizedName("copperTank");
 
 		ModMachines.initMachines();
 		ModOres.initOres();
@@ -153,5 +157,7 @@ public class ModBlocks {
 		GameRegistry.registerBlock(etheriumCrystal, "etheriumCrystal");
 		GameRegistry.registerBlock(smog, "smog");
 		GameRegistry.registerBlock(cryoIce, "cryoIce");
+		GameRegistry.registerBlock(copperPipe, "copperPipe");
+		GameRegistry.registerBlock(copperTank, "copperTank");
 	}
 }
