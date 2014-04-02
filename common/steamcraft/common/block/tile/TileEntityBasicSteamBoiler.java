@@ -32,6 +32,7 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -39,6 +40,7 @@ import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
+import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidTank;
 import common.steamcraft.api.CoupleUtil;
 import common.steamcraft.api.ISteamConsumer;
@@ -55,8 +57,7 @@ import common.steamcraft.common.util.EffectUtil;
  * @author MrArcane111
  *
  */
-/*
-public class TileEntityBasicSteamBoiler extends TileEntityMachine implements ISidedInventory, IInventory, IFluidTank, ISteamProvider {
+/*public class TileEntityBasicSteamBoiler extends TileEntity implements ISidedInventory, IInventory, IFluidTank, ISteamProvider {
 	public static final int MAX_CAPACITY = 10000;
 	public static final float STEAM_PRODUCED = 60.0F;
 	private FluidTank[] liquidTank;
@@ -67,10 +68,11 @@ public class TileEntityBasicSteamBoiler extends TileEntityMachine implements ISi
 	private boolean steaming;
 	private boolean burning;
 	private int particleDelay;
+	private int facingDirection;
 
 	public TileEntityBasicSteamBoiler() {
 		this.inventoryItems = new ItemStack[3];
-		this.liquidTank = new FluidTank[] { new FluidTank(Block.waterStill.blockID, 10000) };
+		this.liquidTank = new FluidTank[] { new FluidTank(Block.waterStill.blockID) };
 	}
 
 	public boolean isSteaming() {
@@ -79,7 +81,7 @@ public class TileEntityBasicSteamBoiler extends TileEntityMachine implements ISi
 
 	public void setSteaming(boolean steaming) {
 		if (this.steaming != steaming)
-			setMarkedForResend(true);
+			//setMarkedForResend(true);
 		this.steaming = steaming;
 	}
 
@@ -536,5 +538,4 @@ public class TileEntityBasicSteamBoiler extends TileEntityMachine implements ISi
 	{
 		return 1;
 	}
-}
-*/
+}*/

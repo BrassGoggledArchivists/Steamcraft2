@@ -16,7 +16,6 @@ package common.steamcraft.client.core.handler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-
 import common.steamcraft.client.gui.GuiChemicalFurnace;
 import common.steamcraft.client.gui.GuiCoalGenerator;
 import common.steamcraft.client.gui.GuiCompressor;
@@ -27,14 +26,13 @@ import common.steamcraft.client.lib2.GuiIDs;
 import common.steamcraft.common.block.tile.TileEntityChemicalFurnace;
 import common.steamcraft.common.block.tile.TileEntityCoalGenerator;
 import common.steamcraft.common.block.tile.TileEntityCompressor;
-import common.steamcraft.common.block.tile.TileEntityNukeFurnace;
 import common.steamcraft.common.block.tile.TileEntitySteamFurnace;
 import common.steamcraft.common.block.tile.container.ContaineCoalGenerator;
 import common.steamcraft.common.block.tile.container.ContainerChemicalFurnace;
 import common.steamcraft.common.block.tile.container.ContainerCompressor;
 import common.steamcraft.common.block.tile.container.ContainerNukeFurnace;
 import common.steamcraft.common.block.tile.container.ContainerSteamFurnace;
-
+import common.steamcraft.common.block.tile.machine.TileEntityNukeFurnace;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 /**

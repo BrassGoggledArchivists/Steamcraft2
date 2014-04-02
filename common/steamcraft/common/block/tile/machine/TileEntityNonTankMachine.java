@@ -15,7 +15,7 @@
  * 
  * File created @ [Feb 1, 2014, 12:54:18 PM]
  */
-package common.steamcraft.common.block.tile;
+package common.steamcraft.common.block.tile.machine;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
@@ -30,7 +30,7 @@ import net.minecraft.tileentity.TileEntity;
  * @author Decebaldecebal
  *
  */
-public class TileEntityMachine extends TileEntity implements ISidedInventory
+public class TileEntityNonTankMachine extends TileEntity implements ISidedInventory
 {
 	protected ItemStack[] inventory;
 	

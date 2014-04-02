@@ -2,7 +2,7 @@ package common.steamcraft.common.block.machines;
 
 import common.steamcraft.client.lib2.GuiIDs;
 import common.steamcraft.common.SC2;
-import common.steamcraft.common.block.tile.TileEntityNukeFurnace;
+import common.steamcraft.common.block.tile.machine.TileEntityNukeFurnace;
 import common.steamcraft.common.lib2.LibInfo;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

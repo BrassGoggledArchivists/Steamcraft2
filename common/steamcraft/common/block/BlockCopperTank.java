@@ -26,8 +26,7 @@ import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import common.steamcraft.common.block.machines.BlockContainerMod;
-import common.steamcraft.common.block.tile.TileEntityTank;
-import common.steamcraft.common.lib2.BlockIDs;
+import common.steamcraft.common.block.tile.TileEntityCopperTank;
 import common.steamcraft.common.util.InventoryUtils;
 
 /**
@@ -52,7 +51,7 @@ public class BlockCopperTank extends BlockContainerMod
 	 */
 	@Override
 	public TileEntity createNewTileEntity(World world) {
-		return new TileEntityTank();
+		return new TileEntityCopperTank();
 	}
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int par6, float par7, float par8, float par9) {
@@ -61,7 +60,7 @@ public class BlockCopperTank extends BlockContainerMod
 		if (current != null) {
 			FluidStack liquid = FluidContainerRegistry.getFluidForFilledItem(current);
 
-			TileEntityTank tank = (TileEntityTank) world.getBlockTileEntity(i, j, k);
+			TileEntityCopperTank tank = (TileEntityCopperTank) world.getBlockTileEntity(i, j, k);
 
 			// Handle filled containers
 			if (liquid != null) {
