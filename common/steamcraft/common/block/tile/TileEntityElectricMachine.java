@@ -37,10 +37,9 @@ import buildcraft.api.power.PowerHandler;
 import buildcraft.api.power.PowerHandler.Type;
 import cofh.api.energy.IEnergyContainerItem;
 import cofh.api.energy.IEnergyHandler;
-
+import common.steamcraft.common.block.tile.machine.TileEntityNonTankMachine;
 import common.steamcraft.common.core.helper.CompatHelper;
 import common.steamcraft.common.util.EnergyUtils;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -50,7 +49,7 @@ import cpw.mods.fml.relauncher.SideOnly;
  * @author Decebaldecebal
  *
  */
-public abstract class TileEntityElectricMachine extends TileEntityMachine implements IPowerReceptor, IEnergyHandler, IEnergySink
+public abstract class TileEntityElectricMachine extends TileEntityNonTankMachine implements IPowerReceptor, IEnergyHandler, IEnergySink
 {
 	protected EnergyUtils energy;
 	protected PowerHandler powerHandler;

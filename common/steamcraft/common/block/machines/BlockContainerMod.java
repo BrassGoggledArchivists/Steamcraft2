@@ -17,6 +17,7 @@
  */
 package common.steamcraft.common.block.machines;
 
+import cofh.api.block.IDismantleable;
 import common.steamcraft.api.IMachine;
 import common.steamcraft.client.core.helper.IconHelper;
 import common.steamcraft.common.lib2.CreativeTabsMod;
@@ -39,7 +40,7 @@ import java.util.Random;
  * @author MrArcane111
  *
  */
-public abstract class BlockContainerMod extends BlockContainer {
+public abstract class BlockContainerMod extends BlockContainer {//implements IDismantleable{
 	/** */
 	protected static boolean keepInventory = false;
 	

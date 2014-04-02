@@ -39,7 +39,7 @@ import common.steamcraft.common.util.TankManager;
  *
  * 1 Apr 201422:27:36
  */
-public class TileEntityTank extends TileEntity implements IFluidHandler{
+public class TileEntityCopperTank extends TileEntity implements IFluidHandler{
 	public final Tank tank = new Tank("copperTank", FluidContainerRegistry.BUCKET_VOLUME * 16, this);
 	public final TankManager tankManager = new TankManager(tank);
 	public boolean hasUpdate = false;
@@ -85,12 +85,12 @@ public class TileEntityTank extends TileEntity implements IFluidHandler{
 	/**
 	 * @return Last tank block below this one or this one if it is the last.
 	 */
-	public TileEntityTank getBottomTank() {
+	public TileEntityCopperTank getBottomTank() {
 
-		TileEntityTank lastTank = this;
+		TileEntityCopperTank lastTank = this;
 
 		while (true) {
-			TileEntityTank below = getTankBelow(lastTank);
+			TileEntityCopperTank below = getTankBelow(lastTank);
 			if (below != null) {
 				lastTank = below;
 			} else {
@@ -101,12 +101,12 @@ public class TileEntityTank extends TileEntity implements IFluidHandler{
 		return lastTank;
 	}
 
-	public TileEntityTank getTopTank() {
+	public TileEntityCopperTank getTopTank() {
 
-		TileEntityTank lastTank = this;
+		TileEntityCopperTank lastTank = this;
 
 		while (true) {
-			TileEntityTank above = getTankAbove(lastTank);
+			TileEntityCopperTank above = getTankAbove(lastTank);
 			if (above != null) {
 				lastTank = above;
 			} else {
@@ -117,26 +117,26 @@ public class TileEntityTank extends TileEntity implements IFluidHandler{
 		return lastTank;
 	}
 
-	public static TileEntityTank getTankBelow(TileEntityTank tile) {
+	public static TileEntityCopperTank getTankBelow(TileEntityCopperTank tile) {
 		TileEntity below = tile.getWorldObj().getBlockTileEntity(tile.xCoord, tile.yCoord - 1, tile.zCoord);
-		if (below instanceof TileEntityTank) {
-			return (TileEntityTank) below;
+		if (below instanceof TileEntityCopperTank) {
+			return (TileEntityCopperTank) below;
 		} else {
 			return null;
 		}
 	}
 
-	public static TileEntityTank getTankAbove(TileEntityTank tile) {
+	public static TileEntityCopperTank getTankAbove(TileEntityCopperTank tile) {
 		TileEntity above = tile.getWorldObj().getBlockTileEntity(tile.xCoord, tile.yCoord + 1, tile.zCoord);
-		if (above instanceof TileEntityTank) {
-			return (TileEntityTank) above;
+		if (above instanceof TileEntityCopperTank) {
+			return (TileEntityCopperTank) above;
 		} else {
 			return null;
 		}
 	}
 
 	public void moveFluidBelow() {
-		TileEntityTank below = getTankBelow(this);
+		TileEntityCopperTank below = getTankBelow(this);
 		if (below == null) {
 			return;
 		}
@@ -159,7 +159,7 @@ public class TileEntityTank extends TileEntity implements IFluidHandler{
 
 		resource = resource.copy();
 		int totalUsed = 0;
-		TileEntityTank tankToFill = getBottomTank();
+		TileEntityCopperTank tankToFill = getBottomTank();
 
 		FluidStack liquid = tankToFill.tank.getFluid();
 		if (liquid != null && liquid.amount > 0 && !liquid.isFluidEqual(resource)) {
@@ -181,7 +181,7 @@ public class TileEntityTank extends TileEntity implements IFluidHandler{
 
 	@Override
 	public FluidStack drain(ForgeDirection from, int maxEmpty, boolean doDrain) {
-		TileEntityTank bottom = getBottomTank();
+		TileEntityCopperTank bottom = getBottomTank();
 		bottom.hasUpdate = true;
 		return bottom.tank.drain(maxEmpty, doDrain);
 	}
@@ -199,7 +199,7 @@ public class TileEntityTank extends TileEntity implements IFluidHandler{
 	public FluidTankInfo[] getTankInfo(ForgeDirection direction) {
 		FluidTank compositeTank = new FluidTank(tank.getCapacity());
 
-		TileEntityTank tile = getBottomTank();
+		TileEntityCopperTank tile = getBottomTank();
 
 		int capacity = tank.getCapacity();
 

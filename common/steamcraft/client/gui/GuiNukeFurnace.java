@@ -13,8 +13,8 @@
  */
 package common.steamcraft.client.gui;
 
-import common.steamcraft.common.block.tile.TileEntityNukeFurnace;
 import common.steamcraft.common.block.tile.container.ContainerNukeFurnace;
+import common.steamcraft.common.block.tile.machine.TileEntityNukeFurnace;
 import common.steamcraft.common.lib2.LibInfo;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
