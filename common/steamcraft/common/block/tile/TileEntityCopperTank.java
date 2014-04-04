@@ -30,6 +30,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
 import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
+import net.minecraftforge.fluids.IFluidTank;
 import common.steamcraft.common.util.SafeTimeTracker;
 import common.steamcraft.common.util.Tank;
 import common.steamcraft.common.util.TankManager;
@@ -58,11 +59,6 @@ public class TileEntityCopperTank extends TileEntity implements IFluidHandler{
 			return;
 		}
 
-		// Have liquid flow down into tanks below if any.
-		if (tank.getFluid() != null) {
-			moveFluidBelow();
-		}
-
 		if (hasUpdate && tracker.markTimeIfDelay(worldObj, 2)) {
 			//sendNetworkUpdate();
 			hasUpdate = false;
@@ -82,6 +78,9 @@ public class TileEntityCopperTank extends TileEntity implements IFluidHandler{
 	}
 
 	/* HELPER FUNCTIONS */
+	public IFluidTank getTank() {
+		return tank;
+	}
 	/**
 	 * @return Last tank block below this one or this one if it is the last.
 	 */
@@ -243,5 +242,8 @@ public class TileEntityCopperTank extends TileEntity implements IFluidHandler{
 	public int getFluidLightLevel() {
 		FluidStack tankFluid = tank.getFluid();
 		return tankFluid == null ? 0 : tankFluid.getFluid().getLuminosity(tankFluid);
+	}
+	public double getHeightForRender() {
+		return (double)tank.getFluidAmount() / (double)tank.getCapacity();
 	}
 }

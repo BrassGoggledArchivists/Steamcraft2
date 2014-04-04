@@ -69,4 +69,5 @@ public class BlockIDs {
 	public static int cryoIceID = SC2.proxy.cfgHandler.loadBlock("cryoIce");
 	public static int copperPipeID = SC2.proxy.cfgHandler.loadBlock("copperPipeID");
 	public static int copperTankID = SC2.proxy.cfgHandler.loadBlock("copperTankID");
+	public static int boilerID = SC2.proxy.cfgHandler.loadBlock("boilerID");
 }

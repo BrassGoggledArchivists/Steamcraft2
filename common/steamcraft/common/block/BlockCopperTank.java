@@ -45,6 +45,15 @@ public class BlockCopperTank extends BlockContainerMod
 		super(id, mat);
 		
 	}
+	@Override
+	public boolean isOpaqueCube() {
+		return false;
+	}
+
+	@Override
+	public int getRenderType() {
+		return -1;
+	}
 
 	/* (non-Javadoc)
 	 * @see net.minecraft.block.ITileEntityProvider#createNewTileEntity(net.minecraft.world.World)

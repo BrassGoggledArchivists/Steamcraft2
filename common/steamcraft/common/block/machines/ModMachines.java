@@ -18,14 +18,18 @@
 package common.steamcraft.common.block.machines;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+
 import common.steamcraft.common.block.tile.TileEntityChemicalFurnace;
 import common.steamcraft.common.block.tile.TileEntityCoalGenerator;
 import common.steamcraft.common.block.tile.TileEntityCompressor;
 import common.steamcraft.common.block.tile.TileEntityDropHammer;
 import common.steamcraft.common.block.tile.TileEntitySteamFurnace;
+import common.steamcraft.common.block.tile.machine.TileEntityBoiler;
 import common.steamcraft.common.block.tile.machine.TileEntityNukeFurnace;
 import common.steamcraft.common.lib2.BlockIDs;
 import common.steamcraft.common.lib2.CreativeTabsMod;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModMachines {
@@ -39,6 +43,7 @@ public class ModMachines {
 	public static Block conveyor;
 	public static Block coalGenerator;
 	public static Block dropHammer;
+	public static Block boiler;
 
 	public static void initMachines() {
 		steamOvenIdle = new BlockSteamFurnace(BlockIDs.steamOvenIdleID, false).setCreativeTab(CreativeTabsMod.tabSCBlocks);
@@ -51,6 +56,7 @@ public class ModMachines {
 		conveyor = new BlockConveyorBelt(BlockIDs.coveyorID);
 		coalGenerator = new BlockCoalGenerator(BlockIDs.generatorID).setCreativeTab(CreativeTabsMod.tabSCBlocks).setUnlocalizedName("simpleCoalGenerator");
 		dropHammer = new BlockDropHammer(BlockIDs.dropHammerID).setCreativeTab(CreativeTabsMod.tabSCBlocks).setUnlocalizedName("dropHammer");
+		boiler = new BlockBoiler(BlockIDs.boilerID, Material.anvil).setCreativeTab(CreativeTabsMod.tabSCBlocks);
 		
 		registerMachines();
 		initMachineTileEntities();
@@ -67,6 +73,7 @@ public class ModMachines {
 		GameRegistry.registerBlock(conveyor, "conveyor");
 		GameRegistry.registerBlock(coalGenerator, "simpleCoalGenerator");
 		GameRegistry.registerBlock(dropHammer, "dropHammer");
+		GameRegistry.registerBlock(boiler, "boiler");
 	}
 	
 	public static void initMachineTileEntities() {
@@ -76,5 +83,6 @@ public class ModMachines {
 		GameRegistry.registerTileEntity(TileEntityCompressor.class, "TileEntityCompressor");
 		GameRegistry.registerTileEntity(TileEntityCoalGenerator.class, "TileEntityCoalGenerator");
 		GameRegistry.registerTileEntity(TileEntityDropHammer.class, "TileEntityDropHammer");
+		GameRegistry.registerTileEntity(TileEntityBoiler.class, "TileEntityBoiler");
 	}
 }
