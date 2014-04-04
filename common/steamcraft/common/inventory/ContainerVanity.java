@@ -22,6 +22,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemStack;
 
 import com.warlordjones.steampunkery.gui.player.SlotArmor;
@@ -41,11 +42,11 @@ public ContainerVanity(EntityPlayer player, InventoryPlayer inventoryPlayer, Pla
 {
 int i;
 //Custom Slots
-this.addSlotToContainer(new SlotHat(inventoryCustom, 0, 80, 8));
-this.addSlotToContainer(new SlotTunic(inventoryCustom, 1, 80, 26));
-this.addSlotToContainer(new SlotLeggings(inventoryCustom, 1, 80, 26));
-this.addSlotToContainer(new SlotBoots(inventoryCustom, 1, 80, 26));
-this.addSlotToContainer(new SlotCape(inventoryCustom, 1, 80, 26));
+this.addSlotToContainer(new SlotHat(inventoryCustom, -65, 80, 8));
+this.addSlotToContainer(new SlotTunic(inventoryCustom, -66, 80, 26));
+this.addSlotToContainer(new SlotLeggings(inventoryCustom, -67, 80, 30));
+this.addSlotToContainer(new SlotBoots(inventoryCustom, 3, -68, 34));
+this.addSlotToContainer(new SlotCape(inventoryCustom, 4, -69, 40));
 //Inventory
 for (i = 0; i < 3; ++i)
 {
@@ -79,7 +80,7 @@ public ItemStack transferStackInSlot(EntityPlayer player, int par2)
 ItemStack itemstack = null;
 Slot slot = (Slot) this.inventorySlots.get(par2);
 
-if (slot != null &amp;&amp; slot.getHasStack())
+if (slot != null && slot.getHasStack())
 {
 ItemStack itemstack1 = slot.getStack();
 itemstack = itemstack1.copy();
@@ -99,9 +100,9 @@ slot.onSlotChange(itemstack1, itemstack);
 else
 {
 // if item is our custom item
-if (itemstack1.getItem() instanceof ItemUseMana)
+if (itemstack1.getItem() instanceof ItemBucket)
 {
-if (!this.mergeItemStack(itemstack1, 0, InventoryCustomPlayer.INV_SIZE, false))
+if (!this.mergeItemStack(itemstack1, 0, PlayerInventoryVanity.INV_SIZE, false))
 {
 return null;
 }
@@ -116,7 +117,7 @@ return null;
 }
 }
 // item in player's inventory, but not in action bar
-else if (par2 >= INV_START &amp;&amp; par2 < HOTBAR_START)
+else if (par2 >= INV_START && par2 < HOTBAR_START)
 {
 // place in action bar
 if (!this.mergeItemStack(itemstack1, HOTBAR_START, HOTBAR_START + 1, false))
@@ -125,7 +126,7 @@ return null;
 }
 }
 // item in action bar - place in player inventory
-else if (par2 >= HOTBAR_START &amp;&amp; par2 < HOTBAR_END + 1)
+else if (par2 >= HOTBAR_START && par2 < HOTBAR_END + 1)
 {
 if (!this.mergeItemStack(itemstack1, INV_START, INV_END + 1, false))
 {

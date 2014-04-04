@@ -196,7 +196,7 @@ protected ItemStack[] inventory;
 		return false;
 	}
 	//Internal FLuid Tank Stuff
-	public final Tank tank = new Tank("internalTank", FluidContainerRegistry.BUCKET_VOLUME * 16, this);
+	public final Tank tank = new Tank("internalSteamTank", FluidContainerRegistry.BUCKET_VOLUME * 16, this);
 	@Override
 	public int fill(ForgeDirection from, FluidStack resource, boolean doFill) {
 		if (resource == null) {
