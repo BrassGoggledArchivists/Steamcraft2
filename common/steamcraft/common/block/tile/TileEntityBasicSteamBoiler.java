@@ -32,16 +32,16 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
-import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidTank;
+
 import common.steamcraft.api.CoupleUtil;
 import common.steamcraft.api.ISteamConsumer;
 import common.steamcraft.api.ISteamProvider;
@@ -51,13 +51,19 @@ import common.steamcraft.common.item.ItemCanister;
 import common.steamcraft.common.item.ModItems;
 import common.steamcraft.common.util.EffectUtil;
 
+
 /**
  * Someone needs to fix this shit.
  * 
  * @author MrArcane111
  *
  */
-/*public class TileEntityBasicSteamBoiler extends TileEntity implements ISidedInventory, IInventory, IFluidTank, ISteamProvider {
+/*
+decebaldecebal:
+I did some work but I do not know what this tile should actually do...
+
+public class TileEntityBasicSteamBoiler extends TileEntityMachine implements IFluidTank, ISteamProvider 
+{
 	public static final int MAX_CAPACITY = 10000;
 	public static final float STEAM_PRODUCED = 60.0F;
 	private FluidTank[] liquidTank;
@@ -68,11 +74,10 @@ import common.steamcraft.common.util.EffectUtil;
 	private boolean steaming;
 	private boolean burning;
 	private int particleDelay;
-	private int facingDirection;
 
 	public TileEntityBasicSteamBoiler() {
 		this.inventoryItems = new ItemStack[3];
-		this.liquidTank = new FluidTank[] { new FluidTank(Block.waterStill.blockID) };
+		this.liquidTank = new FluidTank[] { new FluidTank(new FluidStack(FluidRegistry.WATER, 0), 10000), new FluidTank(new FluidStack(FluidRegistry.getFluid("steam"), 0), 10000) };
 	}
 
 	public boolean isSteaming() {
@@ -81,7 +86,7 @@ import common.steamcraft.common.util.EffectUtil;
 
 	public void setSteaming(boolean steaming) {
 		if (this.steaming != steaming)
-			//setMarkedForResend(true);
+			setMarkedForResend(true);
 		this.steaming = steaming;
 	}
 
@@ -123,23 +128,12 @@ import common.steamcraft.common.util.EffectUtil;
 	{
 		super.readFromNBT(nbtTagCompound);
 
-		this.inventoryItems = new ItemStack[3];
-		NBTTagList tagList = nbtTagCompound.getTagList("Items");
-
-		for (int i = 0; i < tagList.tagCount(); i++)
-		{
-			NBTTagCompound itemCompound = (NBTTagCompound)tagList.tagAt(i);
-			int slot = itemCompound.getByte("Slot");
-			if ((slot >= 0) && (slot < this.inventoryItems.length)) {
-				this.inventoryItems[slot] = ItemStack.loadItemStackFromNBT(itemCompound);
-			}
-		}
 		NBTTagCompound liquidCompound = (NBTTagCompound)nbtTagCompound.getTag("Liquid");
 		if (liquidCompound != null)
 		{
-			FluidStack fluid = new FluidStack(0, 0);
-			fluid.loadFluidStackFromNBT(liquidCompound);
-			this.liquidTank[0].setFluid(fluid);
+			FluidStack fluid = FluidStack.loadFluidStackFromNBT(liquidCompound);
+			if(fluid!=null)
+				this.liquidTank[0].setFluid(fluid);
 		}
 		else {
 			this.liquidTank[0].setFluid(null);
@@ -150,21 +144,6 @@ import common.steamcraft.common.util.EffectUtil;
 
 	public void writeToNBT(NBTTagCompound nbtTagCompound)
 	{
-		super.writeToNBT(nbtTagCompound);
-		NBTTagList tagList = new NBTTagList();
-
-		for (int i = 0; i < this.inventoryItems.length; i++)
-		{
-			if (this.inventoryItems[i] == null)
-				continue;
-			NBTTagCompound itemCompound = new NBTTagCompound();
-			itemCompound.setByte("Slot", (byte)i);
-			this.inventoryItems[i].writeToNBT(itemCompound);
-			tagList.appendTag(itemCompound);
-		}
-
-		nbtTagCompound.setTag("Items", tagList);
-
 		if (this.liquidTank[0].getFluid() != null)
 		{
 			NBTTagCompound liquidCompound = new NBTTagCompound();
@@ -538,4 +517,5 @@ import common.steamcraft.common.util.EffectUtil;
 	{
 		return 1;
 	}
-}*/
+}
+*/

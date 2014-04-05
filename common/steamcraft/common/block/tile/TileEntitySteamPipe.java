@@ -43,7 +43,7 @@ import cpw.mods.fml.relauncher.SideOnly;
  * @author MrArcane111
  *
  */
-public class TileEntityCopperPipe extends NetworkTile {
+public class TileEntitySteamPipe extends NetworkTile {
 	private int connection;
 
 	@SideOnly(Side.CLIENT)
@@ -105,8 +105,8 @@ public class TileEntityCopperPipe extends NetworkTile {
 				ForgeDirection direction = ForgeDirection.getOrientation(placedSide);
 				TileEntity te = this.worldObj.getBlockTileEntity(this.xCoord - direction.offsetX, this.yCoord - direction.offsetY, this.zCoord - direction.offsetZ);
 
-				if ((te != null) && ((te instanceof TileEntityCopperPipe))) {
-					TileEntityCopperPipe otherPipe = (TileEntityCopperPipe)te;
+				if ((te != null) && ((te instanceof TileEntitySteamPipe))) {
+					TileEntitySteamPipe otherPipe = (TileEntitySteamPipe)te;
 
 					if (otherPipe.connectEmptySide(placedSide)) {
 						isConnected = true;
@@ -133,8 +133,8 @@ public class TileEntityCopperPipe extends NetworkTile {
 			ForgeDirection direction = ForgeDirection.getOrientation(sides[i]);
 			TileEntity te = this.worldObj.getBlockTileEntity(this.xCoord + direction.offsetX, this.yCoord + direction.offsetY, this.zCoord + direction.offsetZ);
 
-			if ((te != null) && ((te instanceof TileEntityCopperPipe))) {
-				TileEntityCopperPipe otherPipe = (TileEntityCopperPipe)te;
+			if ((te != null) && ((te instanceof TileEntitySteamPipe))) {
+				TileEntitySteamPipe otherPipe = (TileEntitySteamPipe)te;
 
 				if (ForgeDirection.OPPOSITES[otherPipe.getConnection1()] == sides[i]) {
 					acceptDirection = false;
@@ -168,7 +168,7 @@ public class TileEntityCopperPipe extends NetworkTile {
 				if (otherTile == null) {
 					continue;
 				}
-				if ((!(otherTile instanceof TileEntityCopperPipe)) && (!(otherTile instanceof ISteamConsumer)) && (!(otherTile instanceof ISteamProvider)) && (!(otherTile instanceof ISteamStorage))) {
+				if ((!(otherTile instanceof TileEntitySteamPipe)) && (!(otherTile instanceof ISteamConsumer)) && (!(otherTile instanceof ISteamProvider)) && (!(otherTile instanceof ISteamStorage))) {
 					continue;
 				}
 
@@ -247,8 +247,8 @@ public class TileEntityCopperPipe extends NetworkTile {
 			if (((te instanceof ISteamConsumer)) || ((te instanceof ISteamStorage))) {
 				return new CoupleUtil(te, Integer.valueOf(ForgeDirection.OPPOSITES[side]));
 			}
-			if ((te instanceof TileEntityCopperPipe)) {
-				TileEntityCopperPipe nextPipe = (TileEntityCopperPipe)te;
+			if ((te instanceof TileEntitySteamPipe)) {
+				TileEntitySteamPipe nextPipe = (TileEntitySteamPipe)te;
 				ForgeDirection nextDirection = null;
 				
 				if (nextPipe.getConnection1() == ForgeDirection.OPPOSITES[side]) {

@@ -17,61 +17,37 @@
  */
 package common.steamcraft.common.core.handler;
 
-import net.minecraft.block.material.Material;
+import java.util.HashMap;
+import java.util.Map;
+
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.world.World;
+import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.ForgeSubscribe;
-import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
-import common.steamcraft.common.inventory.ExtendedPlayer;
-import common.steamcraft.common.item.ItemBrassWings;
-import common.steamcraft.common.item.ItemJetpack;
+import net.minecraftforge.event.entity.player.FillBucketEvent;
+
+import common.steamcraft.common.block.ModBlocks;
 import common.steamcraft.common.item.ModArmors;
+import common.steamcraft.common.item.ModItems;
 
 /**
  * @author MrArcane111 & general3214
  *
  */
-public class ModEventHandler {
-	/*No no no! Don't do it like this... I have added the proper method in teh common proxy for now.
-	public void onHarvestDrops(HarvestDropsEvent event) {
-		if (event.block.blockID == Block.tallGrass.blockID) {
-			event.drops.add(new ItemStack(ModItems.teaSeed, 1));
-			event.dropChance = 0.16F; // Should be 16% chance for tea seeds to drop
-		}
-	}*/
-
+public class ModEventHandler 
+{
 	@ForgeSubscribe
 	public void updatePlayer(LivingEvent.LivingUpdateEvent event) {
 		if (event.entityLiving instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.entityLiving;
 			
-			ItemStack chestSlot = player.inventory.armorItemInSlot(2); // le chest
-
-			if (chestSlot != null) {
-				if (chestSlot.itemID == ModArmors.aqualung.itemID) {
-					if (player.isInsideOfMaterial(Material.water) && player.getAir() <= 0) {	
-						player.setAir(300);
-						chestSlot.damageItem(1, player);
-					}
-				}
-			}
-
-            ItemStack legsSlot = player.inventory.armorItemInSlot(1); // le pants
-
-            if (legsSlot != null) {
-                if (legsSlot.itemID == ModArmors.legBraces.itemID) {
-                    float distToFall = player.fallDistance;
-
-                    if (distToFall > 3.0F) {
-                        player.fallDistance = distToFall * 0.888F;
-                        legsSlot.damageItem(1, player);
-                    }
-                }
-            }
-
+			//I do not know if these can be moved since they change the step height
 			ItemStack bootsSlot = player.inventory.armorItemInSlot(0); // le boots
 
 			if (bootsSlot != null) {
@@ -100,39 +76,42 @@ public class ModEventHandler {
             ItemStack chestSlot = player.inventory.armorItemInSlot(2); // le chest
 
             if (chestSlot != null) {
-                if (chestSlot.itemID == ModArmors.brassWings.itemID) 
-                {
-                    ItemBrassWings wings = (ItemBrassWings)chestSlot.getItem();
-                    event.distance = 0;
-                }   
-                if (chestSlot.itemID == ModArmors.jetpack.itemID) 
-                {
-                    ItemJetpack jetpack = (ItemJetpack)chestSlot.getItem();
-                    if (jetpack.canister != null) {
-                       jetpack.canister.damageItem((int)(event.distance / Math.PI), player);
-                       event.distance = 0;
-                       }    
-                }
-                /*if(chestSlot.itemID == ModArmors.steamWings.itemID)
+            		
+                /*
+                 * I will start working on this afterwards
+                 * 
+                if(chestSlot.itemID == ModArmors.steamWings.itemID)
                 {
                 	ItemSteamWings wings = (ItemSteamWings)chestSlot.getItem();
                 	event.distance = 0;
-                }*/
+                }
+                */
             }
         }
     }
+
     @ForgeSubscribe
-    public void onEntityConstructing(EntityConstructing event)
-    {
-    	if (event.entity instanceof EntityPlayer && ExtendedPlayer.get((EntityPlayer) event.entity) == null)
-    		ExtendedPlayer.register((EntityPlayer) event.entity);
-    		if (event.entity instanceof EntityPlayer && event.entity.getExtendedProperties(ExtendedPlayer.EXT_PROP_NAME) == null)
-    		event.entity.registerExtendedProperties(ExtendedPlayer.EXT_PROP_NAME, new ExtendedPlayer((EntityPlayer) event.entity));
+    public void onBucketFill(FillBucketEvent event) {
+
+            ItemStack result = fillCustomBucket(event.world, event.target);
+
+            if (result == null)
+                    return;
+
+            event.result = result;
+            event.setResult(Result.ALLOW);
     }
-    @ForgeSubscribe
-    public void onEntityJoinWorld(EntityJoinWorldEvent event)
+
+    private ItemStack fillCustomBucket(World world, MovingObjectPosition pos) 
     {
-    	if (!event.entity.worldObj.isRemote && event.entity instanceof EntityPlayer)
-    		ExtendedPlayer.get((EntityPlayer) event.entity).sync();
+	 	int id = world.getBlockId(pos.blockX, pos.blockY, pos.blockZ);
+
+        if (id == ModBlocks.steamBlock.blockID && world.getBlockMetadata(pos.blockX, pos.blockY, pos.blockZ) == 0) 
+        {
+                world.setBlockToAir(pos.blockX, pos.blockY, pos.blockZ);
+                return new ItemStack(ModItems.steamBucket);
+        } else
+                return null;
+
     }
 }

@@ -1,35 +1,32 @@
 package common.steamcraft.common.core.handler.recipe;
 
-import java.util.Random;
-
-import common.steamcraft.common.block.ModBlocks;
-import common.steamcraft.common.block.ModOres;
-import common.steamcraft.common.item.ModArmors;
-import common.steamcraft.common.item.ModItems;
-import common.steamcraft.common.item.ModTools;
-import cpw.mods.fml.common.registry.GameRegistry;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
+
+import common.steamcraft.common.block.ModBlocks;
+import common.steamcraft.common.block.ModOres;
+import common.steamcraft.common.item.ModItems;
+import common.steamcraft.common.item.ModTools;
+
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModRecipes {
 
 	public static void initRecipes() 
 	{
 		//Blocks
-		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.blockAluminum, 1, 0), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.ingotsMetal, 1, 0)});
-		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.blockCopper), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.ingotsMetal, 1, 1)});
-		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.blockTin), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.ingotsMetal, 1, 2)});
-		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.blockZinc), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.ingotsMetal, 1, 3)});
-		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.blockCastIron), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.ingotsMetal, 1, 4)});
-		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.blockBrass), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.ingotsMetal, 1, 5)});
-		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.blockBronze), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.ingotsMetal, 1, 6)});
-		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.blockSteel), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.ingotsMetal, 1, 7)});
-		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.blockUranium), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.uraniumOre)});
-		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.blockVolucite), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.etherium)});
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockAluminum), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.ingotsMetal, 1, 0)});
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockCopper), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.ingotsMetal, 1, 1)});
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockTin), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.ingotsMetal, 1, 2)});
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockZinc), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.ingotsMetal, 1, 3)});
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockCastIron), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.ingotsMetal, 1, 4)});
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockBrass), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.ingotsMetal, 1, 5)});
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockBronze), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.ingotsMetal, 1, 6)});
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockSteel), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.ingotsMetal, 1, 7)});
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockUranium), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.uraniumOre)});
+		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockVolucite), new Object[] {"III", "III", "III", 'I', new ItemStack(ModItems.etherium)});
 
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.blockObsidianTile), new Object[] {"XX", "XX", 'X', new ItemStack(Block.obsidian)});
 		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.castIronLampOff), new Object[] {"ccc", "flf", " f ", 'c', new ItemStack(ModItems.ingotsMetal, 1, 4), 'f', ModBlocks.railingCastIron, 'l', ModItems.lightBulb});
@@ -51,32 +48,6 @@ public class ModRecipes {
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.brassWatch), new Object[] {"bgb", "gcg", "bgb", 'b', new ItemStack(ModItems.ingotsMetal, 1, 5), 'g', Block.thinGlass, 'c', new ItemStack(ModItems.pileParts, 1, 2)});
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.emptyCanister), new Object[]{" a ", "a a", " a ", 'a', new ItemStack(ModItems.ingotsMetal, 1, 0)});
 		GameRegistry.addShapedRecipe(new ItemStack(ModTools.drillBase), new Object[]{"   ", "ccc", " c ", 'c', new ItemStack(ModItems.ingotsMetal, 1, 4)});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.drillCore), new Object[]{" c ", "ccc", "   ", 'c', new ItemStack(ModItems.ingotsMetal, 1, 4)});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.drillWood), new Object[]{" M ","MCM"," B ", 'M', Block.wood, 'C', ModTools.drillCore, 'B', ModTools.drillBase});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.drillStone), new Object[]{" M ","MCM"," B ", 'M', Block.stone, 'C', ModTools.drillCore, 'B', ModTools.drillBase});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.drillIron), new Object[]{" M ","MCM"," B ", 'M', Block.blockIron, 'C', ModTools.drillCore, 'B', ModTools.drillBase});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.drillGold), new Object[]{" M ","MCM"," B ", 'M', Block.blockGold, 'C', ModTools.drillCore, 'B', ModTools.drillBase});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.drillDiamond), new Object[]{" M ","MCM"," B ", 'M', Block.blockDiamond, 'C', ModTools.drillCore, 'B', ModTools.drillBase});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.drillObsidian), new Object[]{" M ","MCM"," B ", 'M', Block.obsidian, 'C', ModTools.drillCore, 'B', ModTools.drillBase});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.drillEtherium), new Object[]{" M ","MCM"," B ", 'M',  ModBlocks.blockVolucite, 'C', ModTools.drillCore, 'B', ModTools.drillBase});
-		GameRegistry.addShapedRecipe(new ItemStack(ModArmors.bootsEtherium), new Object[]{"   ", "M M", "M M", 'M', ModItems.etherium});
-		GameRegistry.addShapedRecipe(new ItemStack(ModArmors.legsEtherium), new Object[]{"MMM", "M M", "M M", 'M', ModItems.etherium});
-		GameRegistry.addShapedRecipe(new ItemStack(ModArmors.plateEtherium), new Object[]{"M M", "MMM", "MMM", 'M', ModItems.etherium});
-		GameRegistry.addShapedRecipe(new ItemStack(ModArmors.helmetEtherium), new Object[]{"MMM", "M M", "   ", 'M', ModItems.etherium});
-		GameRegistry.addShapedRecipe(new ItemStack(ModArmors.bootsObsidian), new Object[]{"   ", "M M", "M M", 'M', ModItems.obsidianSlate});
-		GameRegistry.addShapedRecipe(new ItemStack(ModArmors.legsObsidian), new Object[]{"MMM", "M M", "M M", 'M', ModItems.obsidianSlate});
-		GameRegistry.addShapedRecipe(new ItemStack(ModArmors.plateObsidian), new Object[]{"M M", "MMM", "MMM", 'M', ModItems.obsidianSlate});
-		GameRegistry.addShapedRecipe(new ItemStack(ModArmors.helmetObsidian), new Object[]{"MMM", "M M", "   ", 'M', ModItems.obsidianSlate});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.swordEtherium), new Object[]{" M ", " M ", " S ", 'S', Item.stick, 'M', ModItems.etherium});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.pickaxeEtherium), new Object[]{"MMM", " S ", " S ", 'S', Item.stick, 'M', ModItems.etherium});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.axeEtherium), new Object[]{"MM ", "M  ", " S ", 'S', Item.stick, 'M', ModItems.etherium});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.shovelEtherium), new Object[]{" M ", " S ", " S ", 'S', Item.stick, 'M', ModItems.etherium});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.hoeEtherium), new Object[]{"MM ", " S ", " S ", 'S', Item.stick, 'M', ModItems.etherium});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.swordObsidian), new Object[]{" M ", " M ", " S ", 'S', Item.stick, 'M', ModItems.obsidianSlate});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.pickaxeObsidian), new Object[]{"MMM", " S ", " S ", 'S', Item.stick, 'M', ModItems.obsidianSlate});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.axeObsidian), new Object[]{"MM ", "M  ", " S ", 'S', Item.stick, 'M', ModItems.obsidianSlate});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.shovelObsidian), new Object[]{" M ", " S ", " S ", 'S', Item.stick, 'M', ModItems.obsidianSlate});
-		GameRegistry.addShapedRecipe(new ItemStack(ModTools.hoeObsidian), new Object[]{"MM ", " S ", " S ", 'S', Item.stick, 'M', ModItems.obsidianSlate});
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.guideBook), new Object[] {Item.book, ModItems.lightBulb});
 		GameRegistry.addRecipe(new ItemStack(ModTools.chisel), new Object[] {"   ", " i ", " s ", 'i', new ItemStack(Item.ingotIron), 's', new ItemStack(Item.stick)});
 			//Parts

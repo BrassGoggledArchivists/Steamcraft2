@@ -1,4 +1,4 @@
-package common.steamcraft.common.block.tile.machine;
+package common.steamcraft.common.block.tile;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -8,7 +8,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import common.steamcraft.common.block.machines.BlockNukeFurnace;
 import common.steamcraft.common.item.ModItems;
 
-public class TileEntityNukeFurnace extends TileEntityNonTankMachine
+public class TileEntityNukeFurnace extends TileEntityMachine
 {
 	private static final int[] slots_top = new int[] {0};
     private static final int[] slots_bottom = new int[] {2, 1};
@@ -30,7 +30,7 @@ public class TileEntityNukeFurnace extends TileEntityNonTankMachine
 	@Override
 	public String getInvName()
 	{
-		return "Nuclear Furnac";
+		return "Nuclear Reactor";
 	}
 	
 	@Override

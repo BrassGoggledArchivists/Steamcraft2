@@ -25,7 +25,6 @@ import net.minecraft.util.EnumChatFormatting;
 
 import java.io.InputStream;
 import java.net.URL;
-import java.util.Calendar;
 import java.util.Properties;
 import java.util.logging.Level;
 
@@ -44,23 +43,6 @@ public class PlayerTracker implements IPlayerTracker {
 	
 	@Override
 	public void onPlayerLogin(EntityPlayer player) {
-		//Enter in Style!
-		if(player.getEntityName().equals("warlordjones"))
-		{
-			String message = "Connection to Stark Secure Server Established";
-			String message1 = "Status:";
-			String message2 = "Online";
-			String message3 = "It is" + Calendar.getInstance().getTime();
-			player.worldObj.createExplosion(player, player.posX, player.posY, player.posZ, 0, false);
-			player.sendChatToPlayer(ChatMessageComponent.createFromText(message).setColor(EnumChatFormatting.DARK_RED));
-			player.sendChatToPlayer(ChatMessageComponent.createFromText(message1).setColor(EnumChatFormatting.DARK_RED));
-			player.sendChatToPlayer(ChatMessageComponent.createFromText(message2).setColor(EnumChatFormatting.GREEN).setBold(true));
-			player.sendChatToPlayer(ChatMessageComponent.createFromText(message3));
-		}
-		/*if(player.getEntityName().equals("lstarwars3"))
-		{
-			String message = "";
-		}*/
 		if (this.checkUpdate) {
             if (!checkForUpdatedVersion(this.modName, this.modVersion)) {
                 String message = "Version " + newestVersion + " of SC2 is now available!";

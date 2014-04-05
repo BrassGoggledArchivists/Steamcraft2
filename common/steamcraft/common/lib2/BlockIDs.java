@@ -3,7 +3,7 @@ package common.steamcraft.common.lib2;
 import common.steamcraft.common.SC2;
 
 public class BlockIDs {
-	//public static int torchElectricIdleID = 2600;
+    //public static int torchElectricIdleID = 2600;
     //public static int torchElectricActiveID = 2601;
     //public static int torchTeslaIdleID = 2602;
     //public static int torchTeslaActiveID = 2603;
@@ -67,7 +67,4 @@ public class BlockIDs {
 	public static int dropHammerID = SC2.proxy.cfgHandler.loadBlock("dropHammerID");
 	public static int blockObsidianTileID = SC2.proxy.cfgHandler.loadBlock("blockObsidianTileID");
 	public static int cryoIceID = SC2.proxy.cfgHandler.loadBlock("cryoIce");
-	public static int copperPipeID = SC2.proxy.cfgHandler.loadBlock("copperPipeID");
-	public static int copperTankID = SC2.proxy.cfgHandler.loadBlock("copperTankID");
-	public static int boilerID = SC2.proxy.cfgHandler.loadBlock("boilerID");
 }

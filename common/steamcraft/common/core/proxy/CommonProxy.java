@@ -21,13 +21,10 @@ import java.util.Iterator;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.packet.Packet;
-import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -51,6 +48,7 @@ import common.steamcraft.common.item.ModItems;
 import common.steamcraft.common.lib2.EntityIDs;
 import common.steamcraft.common.lib2.LibInfo;
 import common.steamcraft.common.network.PlayerTracker;
+
 import cpw.mods.fml.client.registry.KeyBindingRegistry;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -89,9 +87,6 @@ public class CommonProxy {
 		//this.registerKeyBinds();
 		this.initTileEntities();
 		ModCompatLayer.registerOreDictionary();
-		//DamageSource freeze = new DamageSource("SC2.freeze");
-		
-		
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
@@ -154,7 +149,7 @@ public class CommonProxy {
 			maxDistance = Integer.valueOf(128);
 		}
 
-		Iterator i$;
+		Iterator<?> i$;
 
 		if (packet != null) {
 			for (i$ = world.playerEntities.iterator(); i$.hasNext(); ) { 

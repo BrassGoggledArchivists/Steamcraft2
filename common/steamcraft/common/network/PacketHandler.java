@@ -19,10 +19,7 @@ package common.steamcraft.common.network;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
-import java.io.IOException;
 
-import common.steamcraft.common.SC2;
-import common.steamcraft.common.inventory.ExtendedPlayer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -53,55 +50,33 @@ public class PacketHandler implements IPacketHandler {
 	/** */
 	public static final int PACKET_GUI_INFO = 40;
 	
-	public static final int EXTENDED_PROPERTIES = 50, OPEN_SERVER_GUI = 60;
-	
 	@Override
 	public void onPacketData(INetworkManager manager, Packet250CustomPayload packet, Player player) {
 		DataInputStream dataStream = new DataInputStream(new ByteArrayInputStream(packet.data));
-		handleExtendedProperties(packet, player);
+		
 		try {
 			int packetType = dataStream.read();
-			//Switch Statement is much cleaner than if else :-)
-			switch(packetType)
-			{
 			
-			case 10:
+			if ((packetType == 10) || (packetType == 20) || (packetType == 30)) {
 				int x = dataStream.readInt();
 				int y = dataStream.readInt();
 				int z = dataStream.readInt();
 				
 				World world = ((EntityPlayer) player).worldObj;
 				TileEntity te = world.getBlockTileEntity(x, y, z);
+				
 				if (te instanceof NetworkTile) {
 					NetworkTile netTE = (NetworkTile)te;
+					
+					if (packetType == 10) {
 						netTE.readPacket(dataStream);
-				}
-				break;
-			case 20:
-				int x1 = dataStream.readInt();
-				int y1 = dataStream.readInt();
-				int z1 = dataStream.readInt();
-				
-				World world1 = ((EntityPlayer) player).worldObj;
-				TileEntity te1 = world1.getBlockTileEntity(x1, y1, z1);
-				if (te1 instanceof NetworkTile) {
-					NetworkTile netTE = (NetworkTile)te1;
+					} else if (packetType == 20) {
 						netTE.sendPacket();
-				}
-				break;
-			case 30:
-				int x2 = dataStream.readInt();
-				int y2 = dataStream.readInt();
-				int z2 = dataStream.readInt();
-				
-				World world2 = ((EntityPlayer) player).worldObj;
-				TileEntity te2 = world2.getBlockTileEntity(x2, y2, z2);
-				if (te2 instanceof NetworkTile) {
-					NetworkTile netTE = (NetworkTile)te2;
+					} else if (packetType == 30) {
 						netTE.readPacketFromClient(dataStream);
+					}
 				}
-				break;
-			case 40:
+			} else if (packetType == 40) {
 				int windowID = dataStream.readByte();
 				int barID = dataStream.readShort();
 				int content = dataStream.readInt();
@@ -111,38 +86,9 @@ public class PacketHandler implements IPacketHandler {
 				if ((container != null) && (container.windowId == windowID)) {
 					container.updateProgressBar(barID, content);
 				}
-				break;
-			case 50:
-				//handleExtendedProperties(packet, player, dataStream); break;
-			case 60:
-				handleOpenServerGui(packet, (EntityPlayer) player, dataStream); break;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	private void handleOpenServerGui(Packet250CustomPayload packet, EntityPlayer player, DataInputStream inputStream)
-	{
-	int guiID;
-	try {
-	guiID = inputStream.readInt();
-	} catch (IOException e) {
-	e.printStackTrace();
-	return;
-	}
-	player.openGui(SC2.instance, guiID, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
-	}
-	private void handleExtendedProperties(Packet250CustomPayload packet, Player player)
-	{
-	DataInputStream inputStream = new DataInputStream(new ByteArrayInputStream(packet.data));
-	ExtendedPlayer props = ExtendedPlayer.get((EntityPlayer) player);
-
-	try {
-		inputStream.read();
-	} catch (IOException e) {
-	e.printStackTrace();
-	return;
-	}
-	}
-
 }

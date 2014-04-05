@@ -13,7 +13,7 @@
  */
 package common.steamcraft.common.block.machines;
 
-import common.steamcraft.common.block.tile.machine.TileEntityNonTankMachine;
+import common.steamcraft.common.block.tile.TileEntityMachine;
 import common.steamcraft.common.lib2.CreativeTabsMod;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -49,7 +49,7 @@ public abstract class BlockPowerGenerator extends BlockContainerMod //implements
 
 		TileEntity tile = world.getBlockTileEntity(i, j, k);
 
-		if(tile instanceof TileEntityNonTankMachine) 
+		if(tile instanceof TileEntityMachine) 
 		{
 			//((TileEntityMachine) tile).onBlockPlacedBy(living, stack);
 		}

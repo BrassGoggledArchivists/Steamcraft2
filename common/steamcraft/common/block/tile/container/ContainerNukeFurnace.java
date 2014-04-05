@@ -1,7 +1,7 @@
 package common.steamcraft.common.block.tile.container;
 
+import common.steamcraft.common.block.tile.TileEntityNukeFurnace;
 import common.steamcraft.common.block.tile.container.slot.SlotNukeFurnace;
-import common.steamcraft.common.block.tile.machine.TileEntityNukeFurnace;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;

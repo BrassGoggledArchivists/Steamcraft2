@@ -6,10 +6,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
-import common.steamcraft.common.block.machines.BlockSteamFurnace;
-import common.steamcraft.common.block.tile.machine.TileEntityNonTankMachine;
 
-public class TileEntitySteamFurnace extends TileEntityNonTankMachine
+import common.steamcraft.common.block.machines.BlockSteamFurnace;
+
+public class TileEntitySteamFurnace extends TileEntityMachine
 {
 	private static final int[] slots_top = new int[] {0};
 	private static final int[] slots_bottom = new int[] {2, 1};
