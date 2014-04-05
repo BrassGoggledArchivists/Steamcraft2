@@ -19,6 +19,12 @@ package common.steamcraft.common.block.machines;
 
 import java.util.Random;
 
+import cofh.api.block.IDismantleable;
+import common.steamcraft.api.IMachine;
+import common.steamcraft.client.core.helper.IconHelper;
+import common.steamcraft.common.lib2.CreativeTabsMod;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
@@ -35,7 +41,7 @@ import common.steamcraft.common.lib2.CreativeTabsMod;
  * @author MrArcane111
  *
  */
-public abstract class BlockContainerMod extends BlockContainer {
+public abstract class BlockContainerMod extends BlockContainer {//implements IDismantleable{
 	/** */
 	protected static boolean keepInventory = false;
 	

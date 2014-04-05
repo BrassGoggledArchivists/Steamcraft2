@@ -83,6 +83,22 @@ public class BlockCryoIce extends BlockMod {
 	((EntityLivingBase) entity).setJumping(true);
 	((EntityLivingBase) entity).rotationYaw = 0;
 	((EntityLivingBase) entity).rotationPitch = 0;
+	if(entity instanceof EntityZombie)
+	{
+		//The if statement has to be nested like this, sorry.
+		if(((EntityZombie)entity).isVillager())
+		{
+			//((EntityZombie)entity).startConversion(10);
+		}
+	}
+	if(entity instanceof EntityPlayer)
+	{
+		//Should be a custom 'freeze' damage source
+		((EntityPlayer)entity).attackEntityFrom(DamageSource.generic, 100F);
+		world.setBlockToAir(x,y,z);
+		world.setBlockToAir(x,y+1,z);
+		//Insert Creation of Cryonically Frozen Player statue here
+	}
 	}
 	}
 }

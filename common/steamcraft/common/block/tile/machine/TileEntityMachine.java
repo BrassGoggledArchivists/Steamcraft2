@@ -12,10 +12,10 @@
  * Some code is derived from PowerCraft created by MightyPork which is registered
  * under the MMPL v1.0.
  * PowerCraft (c) MightyPork 2012
- * 
- * File created @ [Feb 1, 2014, 12:54:18 PM]
+ *
+ * File created @ [2 Apr 2014, 08:34:00]
  */
-package common.steamcraft.common.block.tile;
+package common.steamcraft.common.block.tile.machine;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
@@ -23,16 +23,22 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidTankInfo;
+import net.minecraftforge.fluids.IFluidHandler;
+
+import common.steamcraft.common.util.Tank;
 
 /**
- * Basic machine class that includes a lot of functions widely used
- * 
- * @author Decebaldecebal
+ * @author warlordjones
  *
+ * 2 Apr 201408:34:00
  */
-public class TileEntityMachine extends TileEntity implements ISidedInventory
-{
-	protected ItemStack[] inventory;
+public class TileEntityMachine extends TileEntity implements IFluidHandler, ISidedInventory{
+protected ItemStack[] inventory;
 	
 	@Override
 	public void readFromNBT(NBTTagCompound par1NBTTagCompound)
@@ -140,7 +146,7 @@ public class TileEntityMachine extends TileEntity implements ISidedInventory
 	@Override
 	public boolean isInvNameLocalized()
 	{
-		return true;
+		return false;
 	}
 	
 	@Override
@@ -161,9 +167,9 @@ public class TileEntityMachine extends TileEntity implements ISidedInventory
 	}
 
 	@Override
-	public String getInvName() 
-	{
-		return "SteamCraft 2 Inventory";
+	public String getInvName() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -187,6 +193,61 @@ public class TileEntityMachine extends TileEntity implements ISidedInventory
 	@Override
 	public boolean canExtractItem(int i, ItemStack itemstack, int j)
 	{
+		return false;
+	}
+	//Internal FLuid Tank Stuff
+	public final Tank tank = new Tank("internalSteamTank", FluidContainerRegistry.BUCKET_VOLUME * 16, this);
+	@Override
+	public int fill(ForgeDirection from, FluidStack resource, boolean doFill) {
+		if (resource == null) {
+			return 0;
+		}
+
+		resource = resource.copy();
+		int totalUsed = 0;
+
+		FluidStack liquid = tank.getFluid();
+		if (liquid != null && liquid.amount > 0 && !liquid.isFluidEqual(resource)) {
+			return 0;
+		}
+
+		while (tank != null && resource.amount > 0) {
+			int used = tank.fill(resource, doFill);
+			resource.amount -= used;
+
+			totalUsed += used;
+		}
+		return totalUsed;
+	}
+
+	@Override
+	public FluidStack drain(ForgeDirection from, int maxEmpty, boolean doDrain) {
+		return null;
+	}
+
+	@Override
+	public FluidStack drain(ForgeDirection from, FluidStack resource, boolean doDrain) {
+		if (resource == null)
+			return null;
+		if (!resource.isFluidEqual(tank.getFluid()))
+			return null;
+		return drain(from, resource.amount, doDrain);
+	}
+
+	@Override
+	public FluidTankInfo[] getTankInfo(ForgeDirection direction) {
+		int capacity = tank.getCapacity();
+		tank.setCapacity(capacity);
+		return new FluidTankInfo[]{tank.getInfo()};
+	}
+
+	@Override
+	public boolean canFill(ForgeDirection from, Fluid fluid) {
+		return true;
+	}
+
+	@Override
+	public boolean canDrain(ForgeDirection from, Fluid fluid) {
 		return false;
 	}
 }

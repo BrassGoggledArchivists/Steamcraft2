@@ -32,6 +32,7 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -40,6 +41,7 @@ import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
+import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidTank;
 
 import common.steamcraft.api.CoupleUtil;
@@ -61,9 +63,7 @@ import common.steamcraft.common.util.EffectUtil;
 /*
 decebaldecebal:
 I did some work but I do not know what this tile should actually do...
-
-public class TileEntityBasicSteamBoiler extends TileEntityMachine implements IFluidTank, ISteamProvider 
-{
+/*public class TileEntityBasicSteamBoiler extends TileEntity implements ISidedInventory, IInventory, IFluidTank, ISteamProvider {
 	public static final int MAX_CAPACITY = 10000;
 	public static final float STEAM_PRODUCED = 60.0F;
 	private FluidTank[] liquidTank;
@@ -74,11 +74,11 @@ public class TileEntityBasicSteamBoiler extends TileEntityMachine implements IFl
 	private boolean steaming;
 	private boolean burning;
 	private int particleDelay;
+	private int facingDirection;
 
 	public TileEntityBasicSteamBoiler() {
 		this.inventoryItems = new ItemStack[3];
 		this.liquidTank = new FluidTank[] { new FluidTank(new FluidStack(FluidRegistry.WATER, 0), 10000), new FluidTank(new FluidStack(FluidRegistry.getFluid("steam"), 0), 10000) };
-	}
 
 	public boolean isSteaming() {
 		return this.steaming;
@@ -86,7 +86,7 @@ public class TileEntityBasicSteamBoiler extends TileEntityMachine implements IFl
 
 	public void setSteaming(boolean steaming) {
 		if (this.steaming != steaming)
-			setMarkedForResend(true);
+			//setMarkedForResend(true);
 		this.steaming = steaming;
 	}
 
@@ -517,5 +517,4 @@ public class TileEntityBasicSteamBoiler extends TileEntityMachine implements IFl
 	{
 		return 1;
 	}
-}
-*/
+}*/
