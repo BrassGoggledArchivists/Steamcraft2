@@ -31,7 +31,7 @@ public class ItemRayGun extends ItemMod
 	{
 		super(id);
 		this.raySound = raySound;
-		this.setCreativeTab(CreativeTabsMod.tabSCItems);
+		this.setCreativeTab(CreativeTabsMod.tabSCEquipment);
 		this.setMaxDamage(300);
 		this.setMaxStackSize(1);
 		this.setUnlocalizedName("raygun");

@@ -61,6 +61,7 @@ public class ItemElectricDrill extends ItemElectricMod
 		super(id, maxEnergy, (byte)energyTier);
 		this.setCreativeTab(CreativeTabsMod.tabSCItems);
 		this.toolTier = toolTier;
+		setCreativeTab(CreativeTabsMod.tabSCEquipment);
 	}
 
 	@SuppressWarnings("all")

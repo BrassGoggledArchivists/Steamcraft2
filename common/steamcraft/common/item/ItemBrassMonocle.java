@@ -43,8 +43,7 @@ public class ItemBrassMonocle extends ItemArmorMod
 		super(id, mat, renderIndex, armorType, texture);
 		mat = material;
 		this.setMaxStackSize(1);
-		this.setCreativeTab(CreativeTabsMod.tabSCItems);
-		this.setUnlocalizedName("brassmonocle");
+		this.setCreativeTab(CreativeTabsMod.tabSCEquipment);
 	}
 
 	@Override

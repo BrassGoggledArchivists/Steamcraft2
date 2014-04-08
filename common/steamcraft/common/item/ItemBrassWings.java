@@ -42,7 +42,7 @@ public class ItemBrassWings extends ItemArmorMod
 		super(id, mat, renderIndex, armorType, texture);
 		mat = material;
 		this.setMaxStackSize(1);
-		this.setCreativeTab(CreativeTabsMod.tabSCItems);
+		this.setCreativeTab(CreativeTabsMod.tabSCEquipment);
 		this.setUnlocalizedName("brassWings");
 	}
 

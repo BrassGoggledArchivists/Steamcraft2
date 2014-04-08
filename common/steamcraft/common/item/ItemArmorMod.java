@@ -19,7 +19,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * 
- * @authors someone Edited by decebaldecebal.
+ * @authors someone Edited by decebaldecebal and warlordjones
  *
  */
 
@@ -34,14 +34,14 @@ public class ItemArmorMod extends ItemArmor
 		mat = material;
         textureFile = texture;
 		this.setMaxStackSize(1);
-		this.setCreativeTab(CreativeTabsMod.tabSCItems);
+		this.setCreativeTab(CreativeTabsMod.tabSCEquipment);
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon)
 	{
-		this.itemIcon = icon.registerIcon(LibInfo.SC2_PREFIX + "/armor/" + this.getUnlocalizedName().substring(5));
+		this.itemIcon = icon.registerIcon(LibInfo.SC2_PREFIX + "armor/" + this.getUnlocalizedName().substring(5));
 	}
 
 	@Override

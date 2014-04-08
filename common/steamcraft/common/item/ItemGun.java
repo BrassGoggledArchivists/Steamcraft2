@@ -20,9 +20,8 @@ package common.steamcraft.common.item;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
 import common.steamcraft.common.entity.EntityBullet;
-
+import common.steamcraft.common.lib2.CreativeTabsMod;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -41,7 +40,8 @@ public class ItemGun extends ItemMod
 
 	public ItemGun(int id, int damage, int delay, int ammoID, String fireSound, String reloadSound)
 	{ 
-		super(id); 
+		super(id);
+		setCreativeTab(CreativeTabsMod.tabSCEquipment);
 		this.damage = damage;
 		this.fireMax = delay;
 		this.ammoID = ammoID; 

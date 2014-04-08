@@ -1,7 +1,6 @@
 package common.steamcraft.common.item;
 
 import net.minecraft.item.Item;
-
 import common.steamcraft.common.lib2.ItemIDs;
 import common.steamcraft.common.lib2.LibInfo;
 

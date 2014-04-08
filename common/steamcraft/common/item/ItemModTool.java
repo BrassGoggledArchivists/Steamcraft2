@@ -12,9 +12,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import com.google.common.collect.Multimap;
-import common.steamcraft.client.core.helper.ClientHelper;
-import common.steamcraft.common.lib2.MaterialMod;
 
+import common.steamcraft.client.core.helper.ClientHelper;
+import common.steamcraft.common.lib2.CreativeTabsMod;
+import common.steamcraft.common.lib2.MaterialMod;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -29,6 +30,7 @@ public class ItemModTool extends ItemMod
 	protected ItemModTool(int id, float damage, EnumToolMaterial toolMat, Block[] blockArray)
 	{
 		super(id);
+		this.setCreativeTab(CreativeTabsMod.tabSCEquipment);
 		this.toolMaterial = toolMat;
 		ItemModTool.blocksEffectiveAgainst = blockArray;
 		this.maxStackSize = 1;

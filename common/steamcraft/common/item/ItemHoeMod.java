@@ -5,9 +5,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
+import common.steamcraft.common.lib2.CreativeTabsMod;
 import common.steamcraft.common.lib2.MaterialMod;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -18,6 +17,7 @@ public class ItemHoeMod extends ItemMod
 	public ItemHoeMod(int id, EnumToolMaterial toolMat)
 	{
 		super(id);
+		setCreativeTab(CreativeTabsMod.tabSCEquipment);
 		this.maxStackSize = 1;
 		this.setMaxDamage(toolMat.getMaxUses());
 		this.toolMaterial = toolMat;
