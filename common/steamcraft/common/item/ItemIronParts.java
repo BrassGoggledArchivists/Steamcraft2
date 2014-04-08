@@ -60,6 +60,6 @@ public class ItemIronParts extends ItemMod {
 	icons = new Icon[number_parts];
 	for (int i = 0; i < icons.length; i++)
 	    icons[i] = par1IconRegister.registerIcon(LibInfo.SC2_PREFIX
-		    + this.getUnlocalizedName().substring(5) + i);
+		    +"parts/"+ this.getUnlocalizedName().substring(5) + i);
     }
 }
