@@ -74,6 +74,7 @@ public class CommonProxy {
 
 	public void init(FMLInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(new ModEventHandler());
+		if(ConfigHandler.generationEnabled)
 		GameRegistry.registerWorldGenerator(new WorldGenerator());
 		NetworkRegistry.instance().registerGuiHandler(SC2.instance, new GuiHandler());
 		GameRegistry.registerPlayerTracker(new PlayerTracker());

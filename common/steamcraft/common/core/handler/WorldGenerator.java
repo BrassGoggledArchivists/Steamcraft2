@@ -38,100 +38,136 @@ public class WorldGenerator implements IWorldGenerator {
 		
 		switch (world.provider.dimensionId) {
 		case -1:
+			if(ConfigHandler.netherGenerationEnabled)
 			generateNether(world, random, blockChunkX, blockChunkZ);
 			break;
 		case 0:
+			if(ConfigHandler.overworldGenerationEnabled)
 			generateSurface(world, random, blockChunkX, blockChunkZ);
 			break;
 		case 1:
+			if(ConfigHandler.endGenerationEnabled)
 			generateEnd(world, random, blockChunkX, blockChunkZ);
 			break;
 		}
 	}
 
 	private void generateSurface(World world, Random random, int chunkX, int chunkZ) {
-		for (int chance = 0; chance < 1; chance++) {
+		if(ConfigHandler.etheriumOreGenEnabled)
+		{
+		for (int chance = 0; chance < ConfigHandler.etheriumChance; chance++) {
 			int etheriumXCoord = chunkX + random.nextInt(16);
-			int etheriumYCoord = 8 + random.nextInt(12);
+			int etheriumYCoord = 8 + random.nextInt(ConfigHandler.etheriumHeight);
 			int etheriumZCoord = chunkZ + random.nextInt(16);
 
 			new WorldGenMinable(ModOres.oreVolucite.blockID, random.nextInt(2)).generate(world, random, etheriumXCoord, etheriumYCoord, etheriumZCoord);
 		}
-		for (int chance = 0; chance < 3; chance++) {
+		}
+		if(ConfigHandler.uraniumOreGenEnabled)
+		{
+		for (int chance = 0; chance < ConfigHandler.uraniumChance; chance++) {
 			int uraniteXCoord = chunkX + random.nextInt(16);
-			int uraniteYCoord = random.nextInt(24);
+			int uraniteYCoord = random.nextInt(ConfigHandler.uraniumHeight);
 			int uraniteZCoord = chunkZ + random.nextInt(16);
 
 			new WorldGenMinable(ModOres.oreUranite.blockID, random.nextInt(5)).generate(world, random, uraniteXCoord, uraniteYCoord, uraniteZCoord);
 		}
-		for (int chance = 0; chance < 10; chance++) {
+		}
+		if(ConfigHandler.brimstoneOreGenEnabled)
+		{
+		for (int chance = 0; chance < ConfigHandler.brimstoneChance; chance++) {
 			int brimstoneXCoord = chunkX + random.nextInt(16);
-			int brimstoneYCoord = random.nextInt(64);
+			int brimstoneYCoord = random.nextInt(ConfigHandler.brimstoneHeight);
 			int brimstoneZCoord = chunkZ + random.nextInt(16);
 
 			new WorldGenMinable(ModOres.oreBrimstone.blockID, random.nextInt(8)).generate(world, random, brimstoneXCoord, brimstoneYCoord, brimstoneZCoord);
 		}
-		for (int chance = 0; chance < 20; chance++) {
+		}
+		if(ConfigHandler.borniteOreGenEnabled)
+		{
+		for (int chance = 0; chance < ConfigHandler.borniteChance; chance++) {
 			int borniteXCoord = chunkX + random.nextInt(16);
-			int borniteYCoord = random.nextInt(48);
+			int borniteYCoord = random.nextInt(ConfigHandler.borniteHeight);
 			int borniteZCoord = chunkZ + random.nextInt(16);
 
 			new WorldGenMinable(ModOres.oreBornite.blockID, random.nextInt(12)).generate(world, random, borniteXCoord, borniteYCoord, borniteZCoord);
 		}
-		for (int chance = 0; chance < 3; chance++) {
+		}
+		if(ConfigHandler.phosphateOreGenEnabled)
+		{
+		for (int chance = 0; chance < ConfigHandler.phosphateChance; chance++) {
 			int zincXCoord = chunkX + random.nextInt(16);
-			int zincYCoord = random.nextInt(36);
+			int zincYCoord = random.nextInt(ConfigHandler.phosphateHeight);
 			int zincZCoord = chunkZ + random.nextInt(16);
 
 			new WorldGenMinable(ModOres.orePhosphate.blockID, random.nextInt(6)).generate(world, random, zincXCoord, zincYCoord, zincZCoord);
 		}
-		for (int chance = 0; chance < 3; chance++) {
+		}
+		if(ConfigHandler.aluminumOreGenEnabled)
+		{
+		for (int chance = 0; chance < ConfigHandler.aluminumChance; chance++) {
 			int aluminumXCoord = chunkX + random.nextInt(16);
-			int aluminumYCoord = random.nextInt(36);
+			int aluminumYCoord = random.nextInt(ConfigHandler.aluminumHeight);
 			int aluminumZCoord = chunkZ + random.nextInt(16);
 
 			new WorldGenMinable(ModOres.oreAluminum.blockID, random.nextInt(6)).generate(world, random, aluminumXCoord, aluminumYCoord, aluminumZCoord);
 		}
-		for (int chance = 0; chance < 3; chance++) {
+		}
+		if(ConfigHandler.copperOreGenEnabled)
+		{
+		for (int chance = 0; chance < ConfigHandler.copperChance; chance++) {
 			int copperXCoord = chunkX + random.nextInt(16);
-			int copperYCoord = random.nextInt(36);
+			int copperYCoord = random.nextInt(ConfigHandler.copperHeight);
 			int copperZCoord = chunkZ + random.nextInt(16);
 
 			new WorldGenMinable(ModOres.oreCopper.blockID, random.nextInt(6)).generate(world, random, copperXCoord, copperYCoord, copperZCoord);
 		}
-		for (int chance = 0; chance < 3; chance++) {
+		}
+		if(ConfigHandler.tinOreGenEnabled)
+		{
+		for (int chance = 0; chance < ConfigHandler.tinChance; chance++) {
 			int tinXCoord = chunkX + random.nextInt(16);
-			int tinYCoord = random.nextInt(36);
+			int tinYCoord = random.nextInt(ConfigHandler.tinHeight);
 			int tinZCoord = chunkZ + random.nextInt(16);
 
 			new WorldGenMinable(ModOres.oreTin.blockID, random.nextInt(6)).generate(world, random, tinXCoord, tinYCoord, tinZCoord);
 		}
-		for (int chance = 0; chance < 3; chance++) {
+		}
+		if(ConfigHandler.zincOreGenEnabled)
+		{
+		for (int chance = 0; chance < ConfigHandler.zincChance; chance++) {
 			int zincXCoord = chunkX + random.nextInt(16);
-			int zincYCoord = random.nextInt(36);
+			int zincYCoord = random.nextInt(ConfigHandler.zincHeight);
 			int zincZCoord = chunkZ + random.nextInt(16);
 
 			new WorldGenMinable(ModOres.oreZinc.blockID, random.nextInt(6)).generate(world, random, zincXCoord, zincYCoord, zincZCoord);
 		}
+		}
 	}
 
 	private void generateEnd(World world, Random random, int chunkX, int chunkZ) {
-		for (int chance = 0; chance < 3; chance++) {
+		if(ConfigHandler.netherEtheriumCrystalGenEnabled)
+		{
+		for (int chance = 0; chance < ConfigHandler.netherEtheriumCrystalChance; chance++) {
 			int etheriumXCoord = chunkX + random.nextInt(16);
-			int etheriumYCoord = random.nextInt(36);
+			int etheriumYCoord = random.nextInt(ConfigHandler.netherEtheriumCrystalHeight);
 			int etheriumZCoord = chunkZ + random.nextInt(16);
 
 			new WorldGenMinable(ModBlocks.etheriumCrystal.blockID, random.nextInt(6)).generate(world, random, etheriumXCoord, etheriumYCoord, etheriumZCoord);
 		}
+		}
 	}
 
 	private void generateNether(World world, Random random, int chunkX, int chunkZ) {
-		for (int chance = 0; chance < 3; chance++) {
+		if(ConfigHandler.endEtheriumCrystalGenEnabled)
+		{
+		for (int chance = 0; chance < ConfigHandler.endEtheriumCrystalChance; chance++) {
 			int phosphateXCoord = chunkX + random.nextInt(16);
-			int phosphateYCoord = random.nextInt(36);
+			int phosphateYCoord = random.nextInt(ConfigHandler.endEtheriumCrystalHeight);
 			int phosphateZCoord = chunkZ + random.nextInt(16);
 
 			new WorldGenMinable(ModBlocks.etheriumCrystal.blockID, random.nextInt(6)).generate(world, random, phosphateXCoord, phosphateYCoord, phosphateZCoord);
+		}
 		}
 	}
 }
