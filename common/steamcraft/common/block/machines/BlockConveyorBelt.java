@@ -31,6 +31,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import common.steamcraft.common.block.BlockMod;
+import common.steamcraft.common.lib2.CreativeTabsMod;
 import common.steamcraft.common.util.ConveyorUtil;
 
 /**
@@ -43,6 +44,7 @@ public class BlockConveyorBelt extends BlockMod {
 
 	public BlockConveyorBelt(int id) {
 		super(id, Material.iron);
+		this.setCreativeTab(CreativeTabsMod.tabSCMachines);
 		this.setTickRandomly(false);
 		this.setUnlocalizedName("conveyor");
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, ConveyorUtil.HEIGHT, 1.0F);

@@ -26,10 +26,9 @@ import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
 import common.steamcraft.common.block.BlockMod;
+import common.steamcraft.common.lib2.CreativeTabsMod;
 import common.steamcraft.common.lib2.LibInfo;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -47,6 +46,7 @@ public class BlockBattery extends BlockMod
 	protected BlockBattery(int id)
 	{
 		super(id, Material.circuits);
+		this.setCreativeTab(CreativeTabsMod.tabSCMachines);
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
 		this.setLightOpacity(0);
 	}

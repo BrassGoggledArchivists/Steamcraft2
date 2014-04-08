@@ -47,7 +47,7 @@ public abstract class BlockContainerMod extends BlockContainer {
 	
 	protected BlockContainerMod(int id, Material mat) {
 		super(id, mat);
-		this.setCreativeTab(CreativeTabsMod.tabSCBlocks);
+		this.setCreativeTab(CreativeTabsMod.tabSCMachines);
 		this.setHardness(5.0F);
 	}
 	

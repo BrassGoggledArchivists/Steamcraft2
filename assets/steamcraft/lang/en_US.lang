@@ -189,5 +189,6 @@ item.pileParts.2.name=Pile of Iron Parts
 item.pileParts.3.name=Pile of Copper Parts
 #Tabs
 itemGroup.SC2Blocks=SC2 Blocks
+itemGroup.SC2Machines=SC2 Machines
 itemGroup.SC2Items=SC2 Items
 itemGroup.SC2Equipment=SC2 Tools and Armour

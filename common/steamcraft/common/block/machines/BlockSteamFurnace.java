@@ -14,12 +14,11 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
 import common.steamcraft.client.lib2.GuiIDs;
 import common.steamcraft.common.SC2;
 import common.steamcraft.common.block.tile.TileEntitySteamFurnace;
+import common.steamcraft.common.lib2.CreativeTabsMod;
 import common.steamcraft.common.lib2.LibInfo;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -36,6 +35,7 @@ public class BlockSteamFurnace extends BlockContainer //Should be: extends Block
 	protected BlockSteamFurnace(int id, boolean flag)
 	{
 		super(id, Material.iron);
+		this.setCreativeTab(CreativeTabsMod.tabSCMachines);
 		this.furnaceRand = new Random();
 		this.isActive = flag;
 		this.setHardness(4F);

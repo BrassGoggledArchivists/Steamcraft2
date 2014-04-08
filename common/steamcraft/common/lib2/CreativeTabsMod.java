@@ -3,6 +3,7 @@ package common.steamcraft.common.lib2;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import common.steamcraft.common.block.ModBlocks;
+import common.steamcraft.common.block.machines.ModMachines;
 import common.steamcraft.common.item.ModItems;
 import common.steamcraft.common.item.ModTools;
 import cpw.mods.fml.relauncher.Side;
@@ -22,6 +23,15 @@ public class CreativeTabsMod extends CreativeTabs
 		public ItemStack getIconItemStack() 
 		{
 			return new ItemStack(ModBlocks.decorBrass); 
+		}
+	};
+	public static CreativeTabs tabSCMachines = new CreativeTabsMod(CreativeTabs.getNextID(), "SC2Machines") 
+	{
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getIconItemStack() 
+		{
+			return new ItemStack(ModMachines.steamOvenActive); 
 		}
 	};
 
