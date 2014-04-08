@@ -19,17 +19,22 @@ package common.steamcraft.common.item;
 
 import java.util.List;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-
 import common.steamcraft.client.core.helper.IconHelper;
+import common.steamcraft.common.SC2;
+import common.steamcraft.common.core.handler.ConfigHandler;
 import common.steamcraft.common.lib2.CreativeTabsMod;
-
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -45,10 +50,7 @@ public class ItemElectricDrill extends ItemElectricMod
 	int toolTier;
 	
 	/** An array of blocks the drill can mine. */
-	public static final Block[] blocksEffectiveAgainst = new Block[] {
-		Block.cobblestone, Block.dirt, Block.stone, Block.sand, Block.blockClay, Block.ice,
-		Block.snow, Block.netherrack, Block.grass, Block.gravel
-	}; 
+	public static final Block[] blocksEffectiveAgainst = ArrayUtils.addAll(ItemPickaxe.blocksEffectiveAgainst,ItemSpade.blocksEffectiveAgainst);
 
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -59,7 +61,6 @@ public class ItemElectricDrill extends ItemElectricMod
 	public ItemElectricDrill(int id, int maxEnergy, int toolTier, int energyTier) 
 	{
 		super(id, maxEnergy, (byte)energyTier);
-		this.setCreativeTab(CreativeTabsMod.tabSCItems);
 		this.toolTier = toolTier;
 		setCreativeTab(CreativeTabsMod.tabSCEquipment);
 	}

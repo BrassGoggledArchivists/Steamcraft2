@@ -59,6 +59,6 @@ public class ItemMetalIngots extends ItemMod {
 	icons = new Icon[number_parts];
 	for (int i = 0; i < icons.length; i++)
 	    icons[i] = par1IconRegister.registerIcon(LibInfo.SC2_PREFIX
-		    + this.getUnlocalizedName().substring(5) + i);
+		    + this.getUnlocalizedName().substring(5) + ItemMetalIngots.names[i]);
     }
 }

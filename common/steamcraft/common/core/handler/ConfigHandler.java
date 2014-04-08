@@ -19,6 +19,7 @@ package common.steamcraft.common.core.handler;
 
 import java.io.File;
 
+import net.minecraft.block.Block;
 import net.minecraftforge.common.Configuration;
 
 /**
@@ -31,6 +32,7 @@ public final class ConfigHandler {
     public static final String CATEGORY_RENDER = "render";
     public static final String CATEGORY_GUI = "gui";
     public static final String CATEGORY_ENTITY = "entity";
+    public static final String CATEGORY_OPTIONS = "general options";
 
     private static int nextBlockId = 2600;
     private static int nextItemId = 16000;

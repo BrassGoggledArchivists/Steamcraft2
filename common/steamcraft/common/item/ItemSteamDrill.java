@@ -13,27 +13,24 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
 import common.steamcraft.client.core.helper.ClientHelper;
 import common.steamcraft.common.core.helper.CommonHelper;
+import common.steamcraft.common.lib2.CreativeTabsMod;
 import common.steamcraft.common.lib2.LibInfo;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemSteamDrill extends ItemMod
 {
 	private Random random = new Random();
-	public static final Block[] blocksEffectiveAgainst = new Block[] {
-		Block.cobblestone, Block.dirt, Block.stone, Block.sand, Block.blockClay, Block.ice,
-		Block.snow, Block.netherrack, Block.grass
-	}; 
+	public static final Block[] blocksEffectiveAgainst = ItemElectricDrill.blocksEffectiveAgainst;
 	protected EnumToolMaterial toolMaterial;
 
 	protected ItemSteamDrill(int id)
 	{
 		super(id);
 		this.setMaxDamage(321);
+		this.setCreativeTab(CreativeTabsMod.tabSCEquipment);
 	}
 	
 	@SuppressWarnings("all")

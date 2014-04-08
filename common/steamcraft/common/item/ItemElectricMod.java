@@ -30,8 +30,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import cofh.api.energy.IEnergyContainerItem;
-
 import common.steamcraft.common.util.EnergyUtils;
+import cpw.mods.fml.common.Loader;
 
 /**
  * Base class for electric items
@@ -66,9 +66,12 @@ public class ItemElectricMod extends ItemMod implements ISpecialElectricItem, IE
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer entityplayer, List list, boolean flag) 
 	{
+		if(Loader.isModLoaded("IndustrialCraft2") || Loader.isModLoaded("ThermalExpansion"))
+		{
 		list.add(EnumColor.GREY + "Power Tier: " + this.getTier(stack));
 		list.add("");
 		list.add(EnumColor.AQUA + "Energy: " + EnumColor.GREY + this.getEnergy(stack) + " / " + this.maxEnergy);
+		}
 	}
 
 	public int getEnergy(ItemStack stack)

@@ -8,9 +8,8 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
 import common.steamcraft.common.block.ModBlocks;
-
+import common.steamcraft.common.lib2.CreativeTabsMod;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -23,6 +22,7 @@ public class ItemChisel extends ItemMod implements IBoxable
 		super(id);
 		this.maxStackSize = 1;
 		this.setMaxDamage(damage);
+		this.setCreativeTab(CreativeTabsMod.tabSCEquipment);
 	}
 
 	@Override
