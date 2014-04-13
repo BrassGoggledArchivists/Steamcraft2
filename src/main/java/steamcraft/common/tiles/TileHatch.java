@@ -9,15 +9,16 @@
  * Steamcraft (c) Proloe 2011
  * (http://www.minecraftforum.net/topic/251532-181-steamcraft-source-code-releasedmlv054wip/)
  *
- * File created @ [Apr 8, 2014, 3:00:17 PM]
+ * File created @ [13 Apr 2014, 09:10:03]
  */
-package steamcraft.client.lib;
+package steamcraft.common.tiles;
+
+import net.minecraft.tileentity.TileEntity;
 
 /**
- * @author Surseance (Johnny Eatmon)
+ * @author warlordjones
  *
  */
-public class RenderEventHandler
-{
+public class TileHatch extends TileEntity{
 
 }
